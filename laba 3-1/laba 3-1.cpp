@@ -1,5 +1,4 @@
-﻿
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -62,13 +61,20 @@ void review(void) {
         printf("%d) %s\n", struc->priority, struc->inf);
         struc = struc->next;
     }
-
 }
 
 int main() {
-    spstore();
-    spstore();
-    spstore();
+    char choice;
+    do {
+        spstore();
+        printf("Хотите добавить ещё один объект? (y/n): ");
+        scanf(" %c", &choice);
+
+        // Очистка буфера ввода
+        while (getchar() != '\n') continue;
+
+    } while (choice == 'y' || choice == 'Y');
+
     review();
     return 0;
 }
